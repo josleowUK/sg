@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Singapore - Display a popup on click </title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <style>
+    .leaflet-popup-content {
+      width: auto !important;
+    }
+
+    .mapboxgl-popup {
+      max-width: 400px !important;
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+
+    .mapboxgl-popup-content img {
+      max-width: 100%;
+    }
+  </style>
+  <div id="map"></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zbGVvdyIsImEiOiJja3B1Mjc1eDUwcmZhMnVxdXZicm82OXdmIn0.uVQObdOPYP3dBmMTgof5Jw';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/josleow/ckq8gyxwn2lf618sajski9ga3',
+      center: [103.823537, 1.351167],
+      zoom: 10.3
+    });
+
+    map.on('load', function () {
+      map.addSource('places', {
+        'type': 'geojson',
+        'data': {
+          'type': 'FeatureCollection',
+          'features': [{
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Merlion Park",
+                "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/4d/a7/97/photo2jpg.jpg?w=1200&h=1200&s=1"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.85472536087036,
+                  1.2869873083975136
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Marina Bay Sands",
+                "image": "https://cdn.i-scmp.com/sites/default/files/styles/1200x800/public/d8/images/methode/2020/06/05/a3fd4ed2-a6cd-11ea-8ea0-d7434be00753_image_hires_113856.jpeg?itok=ws3_icWA&v=1591328343"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.85778307914734,
+                  1.2822356285803798
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Garden by the Bay",
+                "image": "https://planetofhotels.com/guide/sites/default/files/styles/paragraph__hero_banner__hb_image__1880bp/public/hero_banner/Gardens-by-the-Bay.jpg"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.86802911758423,
+                  1.2794575543509612
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Esplanade",
+                "image": "https://static.toiimg.com/photo/msid-39683292,width-96,height-65.cms"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.85522961616516,
+                  1.290012075138905
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Megazip Adventure Park",
+                "image": "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/ltdqcsjrwxc6tpwy0nw1/Mega%20Adventure.jpg"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.8136339187622,
+                  1.25721140025366
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Universal Studios ",
+                "image": "https://www.rwsentosa.com/-/media/project/non-gaming/rwsentosa/attractions/universal-studios-singapore/others/uss-entrance-globe_1366x666.jpg"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.82303237915038,
+                  1.2543367627760238
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Jewel Changi Airport",
+                "image": "https://skift.com/wp-content/uploads/2019/03/Jewel-Changi-Airport-image-1-e1552043978137.jpg"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.98173332214355,
+                  1.353424074657765
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Faber Point Cable Car",
+                "image": "https://s3-ap-southeast-1.amazonaws.com/tz-mag-media/wp-content/uploads/2020/01/03173545/Mount-Faber-Line_Sentosa-View-copy.jpg"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.8176679611206,
+                  1.2740086587143045
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Singapore Zoo",
+                "image": "https://youimg1.tripcdn.com/target/100d1f000001got14A9B5_C_750_500.jpg?proc=source%2Ftrip"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.79247665405272,
+                  1.4057656160376528
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "icon": 'attraction-15',
+                "title": "Singapore Botanic Gardens",
+                "image": "https://media.istockphoto.com/photos/singapore-botanic-gardens-picture-id1154078073"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  103.81650924682617,
+                  1.3141349968125082
+                ]
+              }
+            }
+          ]
+        }
+      });
+      // Add a layer showing the places.
+      map.addLayer({
+        'id': 'places',
+        'type': 'symbol',
+        'source': 'places',
+        'layout': {
+          'icon-image': '{icon}',
+          'icon-allow-overlap': true
+        }
+      });
+
+
+      map.on('click', 'places', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.title;
+        var image = e.features[0].properties.image;
+
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML('<h3>' + description + '</h3>' + '<img src="' + image + '">')
+          .addTo(map);
+      });
+
+      // Change the cursor to a pointer when the mouse is over the places layer.
+      map.on('mouseenter', 'places', function () {
+        map.getCanvas().style.cursor = 'pointer';
+      });
+
+      // Change it back to a pointer when it leaves.
+      map.on('mouseleave', 'places', function () {
+        map.getCanvas().style.cursor = '';
+      });
+    });
+  </script>
+
+</body>
+
+</html>
